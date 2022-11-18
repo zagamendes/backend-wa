@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsnd ./src/index.ts --respawn-only",
-    "start": "tsc node ./build/index.js"
+    "start": "node build/index.js",
+    "postinstall": "tsc"
   },
   "keywords": [],
   "author": "",
