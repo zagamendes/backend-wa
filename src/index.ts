@@ -5,9 +5,7 @@ import MovieModel from "./schemas/movie";
 import mongoose from "mongoose";
 import api from "./api";
 import cors from "cors";
-import dotenv from "dotenv";
-dotenv.config();
-const port = process.env.PORT || 3000;
+
 const app = express();
 app.use(cors({ origin: "*" }));
 mongoose
@@ -123,4 +121,4 @@ app.get("/totalMovies", async (req, res) => {
   }
 });
 
-app.listen(port, () => console.log("running🔥"));
+app.listen(8080, () => console.log("running🔥"));
