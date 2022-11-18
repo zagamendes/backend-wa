@@ -5,6 +5,8 @@ import MovieModel from "./schemas/movie";
 import mongoose from "mongoose";
 import api from "./api";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
 mongoose
   .connect(
