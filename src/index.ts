@@ -7,6 +7,7 @@ import api from "./api";
 import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
+const port = process.env.PORT || 3000;
 const app = express();
 mongoose
   .connect(
@@ -102,7 +103,7 @@ app.get("/movies", async (req, res) => {
   }
 });
 app.delete("/deleteMovies", async (req, res) => {
-  const allMovies = await MovieModel.find().limit(6);
+  const allMovies = await MovieModel.find().limit(8);
   allMovies.forEach(async (movie) => {
     await MovieModel.deleteOne({ title: movie.title });
   });
@@ -121,4 +122,4 @@ app.get("/totalMovies", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 3000, () => console.log("running🔥"));
+app.listen(port, () => console.log("running🔥"));
