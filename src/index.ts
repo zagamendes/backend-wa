@@ -9,6 +9,7 @@ import dotenv from "dotenv";
 dotenv.config();
 const port = process.env.PORT || 3000;
 const app = express();
+app.use(cors({ origin: "*" }));
 mongoose
   .connect(
     "mongodb+srv://izaac:WWdQMreOR1nd1CiS@api-wa.dgx9njl.mongodb.net/?retryWrites=true&w=majority"
@@ -16,7 +17,7 @@ mongoose
   .catch((e) => {
     throw new Error(e);
   });
-app.use(cors());
+
 const startAt = async () => {
   const qtdMovies = (await MovieModel.find()).length;
   if (qtdMovies == 0) return 8;
